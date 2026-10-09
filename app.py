@@ -1,14 +1,40 @@
-from flask import* 
+#from flask import* 
 # initialize application
-import pymysql 
-import sms
+#import pymysql 
+#import sms
 # connect to DB 
-connection= pymysql.connect(host="localhost", user="root", password="", database="explore_kenya")
+#connection= pymysql.connect(host="localhost", user="root", password="", database="explore_kenya")
 # create a cursor 
-cursor= connection.cursor()
+#cursor= connection.cursor()
 
-app= Flask(__name__)
-app.secret_key="@123wgsfdhgdgdsjg"
+#app= Flask(__name__)
+#app.secret_key="@123wgsfdhgdgdsjg"
+
+import os
+from flask import *
+import pymysql
+import sms
+
+app = Flask(__name__)
+
+# Flask secret key: configure this in Render
+app.secret_key = os.environ.get("SECRET_KEY")
+
+if not app.secret_key:
+    if os.environ.get("RENDER"):
+        raise RuntimeError("Set SECRET_KEY in Render environment variables")
+    app.secret_key = "local-development-only-change-this"
+
+# Database connection: local XAMPP by default, hosted database online
+connection = pymysql.connect(
+    host=os.environ.get("DB_HOST", "localhost"),
+    user=os.environ.get("DB_USER", "root"),
+    password=os.environ.get("DB_PASSWORD", ""),
+    database=os.environ.get("DB_NAME", "explore_kenya"),
+    port=int(os.environ.get("DB_PORT", "3306"))
+)
+
+cursor = connection.cursor()
 
 #home route
 @app.route("/index")
