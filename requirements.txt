@@ -3,3 +3,4 @@ PyMySQL
 gunicorn
 python-dotenv
 requests
+africastalking
