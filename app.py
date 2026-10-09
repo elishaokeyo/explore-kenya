@@ -31,7 +31,7 @@ connection = pymysql.connect(
     user=os.environ.get("DB_USER", "root"),
     password=os.environ.get("DB_PASSWORD", ""),
     database=os.environ.get("DB_NAME", "explore_kenya"),
-    port=int(os.environ.get("DB_PORT", "3306"))
+    port=int(os.environ.get("DB_PORT") or "3306")
 )
 
 cursor = connection.cursor()
