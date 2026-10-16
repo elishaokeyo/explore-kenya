@@ -45,6 +45,7 @@ cursor = connection.cursor()
 
 
 #home route
+@app.route("/")
 @app.route("/index")
 def index():
   connection.commit()
