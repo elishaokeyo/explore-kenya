@@ -45,7 +45,7 @@ cursor = connection.cursor()
 
 
 #home route
-@app.route("/")
+
 @app.route("/index")
 def index():
   connection.commit()
@@ -128,6 +128,7 @@ def sports():
   return render_template("sports.html")
 
 #splash
+@app.route("/")
 @app.route("/splash")
 def splash():
   connection.commit()
