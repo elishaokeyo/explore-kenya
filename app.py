@@ -17,7 +17,7 @@ import sms
 
 app = Flask(__name__)
 
-# Flask secret key: configure this in Render
+# Flask secret key configuration
 app.secret_key = os.environ.get("SECRET_KEY")
 
 if not app.secret_key:
@@ -25,16 +25,24 @@ if not app.secret_key:
         raise RuntimeError("Set SECRET_KEY in Render environment variables")
     app.secret_key = "local-development-only-change-this"
 
-# Database connection: local XAMPP by default, hosted database online
+# Configure standard SSL properties for the Aiven Cloud handshake
+ssl_config = None
+if os.environ.get("RENDER"):
+    # Render reads the ca.pem file automatically from your root workspace
+    ssl_config = {"ca": "ca.pem"}
+
+# Database connection parameter mapping
 connection = pymysql.connect(
     host=os.environ.get("DB_HOST", "localhost"),
     user=os.environ.get("DB_USER", "root"),
     password=os.environ.get("DB_PASSWORD", ""),
     database=os.environ.get("DB_NAME", "explore_kenya"),
-    port=int(os.environ.get("DB_PORT") or "3306")
+    port=int(os.environ.get("DB_PORT") or "3306"),
+    ssl=ssl_config  # This parameter is required for cloud database handshakes
 )
 
 cursor = connection.cursor()
+
 
 #home route
 @app.route("/index")
