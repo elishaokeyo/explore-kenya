@@ -3,145 +3,1166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>splash</title>
-     <!-- css suporting files  -->
-     <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
-     <link rel="stylesheet" href="../static/files/css/lightslider.css">
-     <link rel="stylesheet" href="../static/files/css/style.css">
-     
-     <!-- js surporting files  -->
-     <script src="../static/files/js/bootstrap.bundle.min.js"></script>
-     <script src="../static/files/js/jquery.js"></script>
-     <script src="../static/files/js/lightslider.js"></script>
-     <script src="../static/files/js/script.js"></script>
+    <title>Explore Kenya - Lush Green Savanna Experience</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body{
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            background: #1b2227;
-            
-        }
-        .loader{
-            height: 20em;
-            width: 20em;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .circle{
-            position: absolute;
-            height: 80%;
-            width: 80%;
-            border-radius: 120%;
-            border-style:solid;
+        /* Navigation Container */
+.main-nav {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
 
-        }
-        .video{
-            position: relative;
-            content: normal;
-        }
-        .white{
-            border-width: 3px 3px 0 0;
-            border-color: white white transparent;
-            animation:0.7s rotate-white linear infinite;
-        }
-        .red{
-            border-width: 0 0 3px 3px;
-            border-color: transparent transparent rgb(165, 5, 19);
-            animation: 0.7s rotate-red linear infinite;
-        }
-        .orange{
-            border-width: 0 3px 3px 0;
-            border-color: transparent orange orange transparent;
-            animation: 0.7s rotate-orange linear infinite;
-        }
-        .yellow{
-            border-width: 3px 0 0 3px;
-            border-color: #00ff0d transparent transparent;
-            animation: 0.7s rotate-yellow linear infinite;
-        }
-        
-        @keyframes rotate-white{
-            from{
-                transform: rotateX(45deg) rotateY(-35deg);
+/* Nav Items Base Styling */
+.nav-item {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-            }
-            to{
-                transform: rotate(45deg) rotateY(-35deg);
-            }
-        }
-        @keyframes rotate-red{
-            from{
-                transform: rotateX(45deg) rotateY(35deg);
+/* Hover Effect for standard nav items */
+.nav-item:hover {
+  background: #2e7d32; /* Savanna Green */
+  color: #ffffff;
+  border-color: #4caf50;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+}
 
-            }
-            to{
-                transform: rotate(45deg) rotateY(35deg);
-            }
-        }
-        @keyframes rotate-orange{
-            from{
-                transform: rotateX(70deg) rotatez(0deg);
+/* Spin Hover Animation Class */
+.nav-item.spin {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1b5e20, #388e3c);
+  border: 1px solid #81c784;
+}
 
-            }
-            to{
-                transform: rotate(70deg) rotatez(360deg);
-            }
-        }
-        @keyframes rotate-yellow{
-            from{
-                transform: rotateX(70deg) rotatey(-35deg);
+.nav-item.spin:hover {
+  animation: navSpin 0.6s ease-in-out forwards;
+  background: linear-gradient(135deg, #f57c00, #ffb300); /* Vibrant Gold on Hover */
+  color: #111;
+  border-color: #ffe082;
+  box-shadow: 0 0 25px rgba(255, 179, 0, 0.6);
+}
 
-            }
-            to{
-                transform: rotate(70deg) rotatez(360deg);
-            }
+/* Keyframe for 360 Spin Effect */
+@keyframes navSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.15);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.05);
+  }
+}
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #06140b;
+            color: #ffffff;
+            overflow-x: hidden;
+            user-select: none;
         }
-        .spin {
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Dynamic Green Savanna Gradient */
+        .savanna-bg {
+            background: linear-gradient(180deg, 
+                #1a3d54 0%, 
+                #2d6a4f 35%, 
+                #52b788 65%, 
+                #74c69d 85%, 
+                #b7e4c7 100%);
+            transition: background 1.2s ease;
+        }
+
+        .savanna-bg.dusk-mode {
+            background: linear-gradient(180deg, 
+                #0d1b2a 0%, 
+                #1b4332 35%, 
+                #2d6a4f 65%, 
+                #40916c 85%, 
+                #d8f3dc 100%);
+        }
+
+        .savanna-bg.golden-mode {
+            background: linear-gradient(180deg, 
+                #2b1e3a 0%, 
+                #703d57 30%, 
+                #40916c 65%, 
+                #95d5b2 85%, 
+                #f3c68f 100%);
+        }
+
+        /* Physics Elastic Bounce Animations for Letters */
+        .letter-container {
+            display: inline-flex;
+            perspective: 1000px;
+        }
+
+        .letter {
             display: inline-block;
-            animation: spinY 10s alternate linear infinite;
+            transform: translateY(-400px) scale(0.2) rotate(-20deg);
+            opacity: 0;
+            font-size: clamp(2.5rem, 6vw, 6.5rem);
+            font-weight: 900;
+            color: #fef08a;
+            text-shadow: 0 10px 25px rgba(0,0,0,0.7), 0 0 35px rgba(250, 204, 21, 0.6), -2px -2px 0 #15803d, 2px 2px 0 #064e3b;
+            transition: transform 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6), opacity 0.3s ease;
+            cursor: pointer;
+            margin: 0 2px;
         }
-    
-        @keyframes spinY {
-            from {
-                transform: rotateY(0deg);
-            }
-            to {
-                transform: rotateY(180deg);
-            }
+
+        .letter.bounced {
+            transform: translateY(0) scale(1) rotate(0deg);
+            opacity: 1;
         }
-        
-        
 
+        /* Continuous idle float wave */
+        .letter.floating {
+            animation: idleFloat 3s ease-in-out infinite alternate;
+        }
 
+        @keyframes idleFloat {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg) scale(1.03); }
+            100% { transform: translateY(6px) rotate(-1deg); }
+        }
 
+        /* Extra elastic pop on user click */
+        .letter.pop {
+            animation: elasticPop 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) !important;
+        }
+
+        @keyframes elasticPop {
+            0% { transform: translateY(0) scale(1); }
+            30% { transform: translateY(-45px) scale(1.25) rotate(-8deg); }
+            60% { transform: translateY(10px) scale(0.9) rotate(4deg); }
+            100% { transform: translateY(0) scale(1) rotate(0deg); }
+        }
+
+        /* Equalizer Animation Bars */
+        .eq-bar {
+            width: 3px;
+            background-color: #facc15;
+            border-radius: 2px;
+            animation: eqBounce 1s ease-in-out infinite alternate;
+        }
+        .eq-bar:nth-child(1) { height: 16px; animation-delay: 0.1s; }
+        .eq-bar:nth-child(2) { height: 24px; animation-delay: 0.3s; }
+        .eq-bar:nth-child(3) { height: 12px; animation-delay: 0.2s; }
+        .eq-bar:nth-child(4) { height: 20px; animation-delay: 0.4s; }
+
+        @keyframes eqBounce {
+            0% { transform: scaleY(0.3); }
+            100% { transform: scaleY(1.1); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.2);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(34, 197, 94, 0.6);
+            border-radius: 3px;
+        }
     </style>
-    <br><br><script src="js/bootstrap.js"></script>
-    <link rel="stylesheet" href="../movie.css">
-
 </head>
-<body>
-    <b><h1 class="text-success spin">EXPLORE....KENYA</h1></b>
-    
-    <!-- <video autoplay muted loop id="kVideo" class="spin vide0">
-       <source src="../istockphoto-1393059871-640_adpp_is.mp4" type="video/mp4">
-    </video>
-   <br><br> -->
-    <div class="loader">
-        <div class="circle white"></div>
-        <div class="circle red"></div>
-        <div class="circle orange"></div>
-        <div class="circle yellow"></div>
-        
+<body class="min-h-screen flex flex-col justify-between relative bg-emerald-950 overflow-hidden">
 
+    <!-- Main Experience Scene Container -->
+    <div id="scene-container" class="savanna-bg absolute inset-0 w-full h-full overflow-hidden">
+        
+        <!-- Interactive WebGL/Canvas Layer (Kilimanjaro, Lush Trees, Wind Grass, Big 5 Animals, Birds) -->
+        <canvas id="savanna-canvas" class="absolute inset-0 w-full h-full z-0"></canvas>
+
+        <!-- Dynamic Letter Bouncing Banner -->
+        <div class="absolute top-10 md:top-14 left-0 right-0 z-10 text-center px-4 pointer-events-none">
+            <div id="text-target" class="font-cinzel tracking-wider uppercase flex justify-center flex-wrap gap-x-3 md:gap-x-6 pointer-events-auto">
+                <!-- Bouncing letters rendered here -->
+            </div>
+            <p id="subtitle" class="mt-2 md:mt-4 text-xs sm:text-base md:text-lg font-bold text-emerald-100 uppercase tracking-widest opacity-0 transition-opacity duration-1000 drop-shadow-md">
+                🌿 Magical Kenya • Lush Savanna & The Big Five 🌿
+            </p>
+            
+        </div>
+
+        <!-- Animal Interaction Info Card Modal -->
+        <div id="animal-modal" class="absolute bottom-28 left-1/2 transform -translate-x-1/2 z-20 bg-emerald-950/85 backdrop-blur-md border border-emerald-500/40 text-white p-5 md:p-6 rounded-2xl max-w-md w-11/12 opacity-0 pointer-events-none transition-all duration-300 scale-95 shadow-2xl">
+            <div class="flex justify-between items-start border-b border-emerald-500/30 pb-3 mb-3">
+                <div>
+                    <h3 id="modal-title" class="font-cinzel text-2xl font-bold text-amber-300">Animal Name</h3>
+                    <p id="modal-swahili" class="text-xs text-emerald-200/80 italic font-semibold">Swahili: -</p>
+                </div>
+                <button id="close-modal" class="text-gray-300 hover:text-white p-1 text-lg rounded-lg hover:bg-emerald-800/40 transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p id="modal-desc" class="text-xs md:text-sm text-emerald-100 leading-relaxed mb-4">
+                Description of the Big Five animal...
+            </p>
+            <div class="flex justify-between text-xs text-amber-300 font-medium pt-2 border-t border-emerald-500/20">
+                <span id="modal-stat-1"><i class="fas fa-weight-hanging mr-1"></i> Weight: -</span>
+                <span id="modal-stat-2"><i class="fas fa-shield-alt mr-1"></i> Status: Protected</span>
+            </div>
+            <button id="modal-action-btn" class="mt-4 w-full bg-gradient-to-r from-amber-500 to-emerald-600 hover:from-amber-400 hover:to-emerald-500 text-slate-950 font-extrabold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow-lg flex items-center justify-center space-x-2">
+                <i id="action-icon" class="fas fa-bullhorn"></i>
+                <span id="action-text">Make Animal Sound</span>
+            </button>
+        </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br>
-    <a href='/register' class="nav-item nav-link spin">SIGHN IN</a>
-    
-    
+
+    <!-- Top UI Control Bar -->
+    <header class="relative z-30 flex justify-between items-center p-4 md:p-6 bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-transparent">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-600/30 border border-emerald-400/50 flex items-center justify-center text-amber-300 font-bold text-xl shadow-inner">
+                🇰🇪
+            </div>
+            <div>
+                <h2 class="text-sm font-extrabold tracking-widest uppercase text-amber-300">Explore Kenya</h2>
+                <p class="text-xs text-emerald-200/80 font-medium">Lush Green Savanna Experience</p>
+            </div>
+        </div>
+
+        <!-- Audio & Equalizer Control -->
+        <div class="flex items-center space-x-3">
+            <nav class="main-nav">
+  <a href="/register" class="nav-item nav-link spin">SIGN IN</a>
+</nav>
+            <button id="sound-btn" class="flex items-center space-x-3 bg-emerald-950/70 hover:bg-emerald-900/80 border border-emerald-400/40 px-4 py-2 rounded-full text-xs font-bold text-amber-300 backdrop-blur-md transition shadow-lg">
+                <i id="sound-icon" class="fas fa-music text-amber-400 text-sm"></i>
+                <span id="sound-text" class="hidden sm:inline">Play African Rhythm</span>
+                <div id="eq-container" class="hidden flex items-center space-x-1 ml-1">
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Bottom Control Dock -->
+    <footer class="relative z-30 p-4 md:p-6 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent backdrop-blur-sm">
+        <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            
+            <!-- Replay & Pause Controls -->
+            <div class="flex items-center space-x-3">
+                <button id="replay-btn" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black px-5 py-2.5 rounded-full text-xs sm:text-sm flex items-center space-x-2 transition transform active:scale-95 shadow-lg shadow-amber-500/20">
+                    <i class="fas fa-redo-alt"></i>
+                    <span>Replay Letters & Animals</span>
+                </button>
+                <button id="pause-btn" class="bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/40 text-emerald-200 font-bold px-4 py-2.5 rounded-full text-xs sm:text-sm flex items-center space-x-2 transition">
+                    <i id="pause-icon" class="fas fa-pause"></i>
+                    <span id="pause-text">Pause</span>
+                </button>
+            </div>
+
+            <!-- Big Five Animal Quick Selectors -->
+            <div class="hidden lg:flex items-center space-x-2 text-xs">
+                <span class="text-amber-300/80 uppercase font-black text-[10px] tracking-widest mr-1">The Big 5:</span>
+                <button data-index="0" class="animal-tag px-3 py-1.5 rounded-lg bg-emerald-900/40 hover:bg-emerald-700/60 text-emerald-200 border border-emerald-500/20 transition font-semibold">🦁 Lion</button>
+                <button data-index="1" class="animal-tag px-3 py-1.5 rounded-lg bg-emerald-900/40 hover:bg-emerald-700/60 text-emerald-200 border border-emerald-500/20 transition font-semibold">🐘 Elephant</button>
+                <button data-index="2" class="animal-tag px-3 py-1.5 rounded-lg bg-emerald-900/40 hover:bg-emerald-700/60 text-emerald-200 border border-emerald-500/20 transition font-semibold">🦏 Rhino</button>
+                <button data-index="3" class="animal-tag px-3 py-1.5 rounded-lg bg-emerald-900/40 hover:bg-emerald-700/60 text-emerald-200 border border-emerald-500/20 transition font-semibold">🐆 Leopard</button>
+                <button data-index="4" class="animal-tag px-3 py-1.5 rounded-lg bg-emerald-900/40 hover:bg-emerald-700/60 text-emerald-200 border border-emerald-500/20 transition font-semibold">🦬 Buffalo</button>
+            </div>
+
+            <!-- Atmosphere Mode Toggle -->
+            <div class="flex items-center space-x-3 ml-auto sm:ml-0">
+                <button id="theme-btn" class="bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-400/40 text-amber-300 px-3.5 py-2 rounded-full text-xs font-bold flex items-center space-x-2 transition">
+                    <i id="theme-icon" class="fas fa-sun text-amber-400"></i>
+                    <span id="theme-text">Day Savanna</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        /**
+         * Explore Kenya Interactive Web App
+         * Features: Bouncing Text Physics, Procedural Multi-Joint Big 5 Animals, Lush Green Savanna, Web Audio Lion King Rhythm Engine
+         */
+
+        const state = {
+            isPlaying: true,
+            audioEnabled: false,
+            skyMode: 'day', // day, golden, dusk
+            activeAnimalModal: null,
+            lettersFinished: false
+        };
+
+        // DOM Elements
+        const textTarget = document.getElementById('text-target');
+        const subtitle = document.getElementById('subtitle');
+        const canvas = document.getElementById('savanna-canvas');
+        const ctx = canvas.getContext('2d');
+        const soundBtn = document.getElementById('sound-btn');
+        const soundIcon = document.getElementById('sound-icon');
+        const soundText = document.getElementById('sound-text');
+        const eqContainer = document.getElementById('eq-container');
+        const replayBtn = document.getElementById('replay-btn');
+        const pauseBtn = document.getElementById('pause-btn');
+        const pauseIcon = document.getElementById('pause-icon');
+        const pauseText = document.getElementById('pause-text');
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+        const sceneContainer = document.getElementById('scene-container');
+        const animalModal = document.getElementById('animal-modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalActionBtn = document.getElementById('modal-action-btn');
+
+        // Big Five Detailed Specifications & Educational Information
+        const bigFiveSpecs = [
+            {
+                name: "African Lion",
+                swahili: "Simba",
+                desc: "The undisputed King of the Savanna. Famous for their mighty roars echoing across the lush Maasai Mara plains, lions live in close-knit social prides.",
+                stat1: "Weight: 150 - 230 kg",
+                stat2: "Status: Vulnerable",
+                soundPitch: 120,
+                type: "lion"
+            },
+            {
+                name: "African Elephant",
+                swahili: "Tembo / Ndovu",
+                desc: "The giant gentle sovereign of Kenya's ecosystem. Using their long trunks and tusks, elephants shape the green landscape, create water holes, and nurture deep matriarchal ties.",
+                stat1: "Weight: Up to 6,000 kg",
+                stat2: "Status: Protected",
+                soundPitch: 280,
+                type: "elephant"
+            },
+            {
+                name: "Black & White Rhino",
+                swahili: "Kifaru",
+                desc: "Prehistoric armor-plated marvels. Protected rigorously in sanctuaries like Ol Pejeta and Lake Nakuru, rhinos move with formidable weight and acute hearing.",
+                stat1: "Weight: 1,400 - 2,200 kg",
+                stat2: "Status: Critically Endangered",
+                soundPitch: 180,
+                type: "rhino"
+            },
+            {
+                name: "African Leopard",
+                swahili: "Chui",
+                desc: "The stealthy master of shadows and branches. Highly solitary and powerful, leopards move gracefully through green fever tree forests.",
+                stat1: "Weight: 60 - 90 kg",
+                stat2: "Status: Vulnerable",
+                soundPitch: 350,
+                type: "leopard"
+            },
+            {
+                name: "Cape Buffalo",
+                swahili: "Nyati / Mbogo",
+                desc: "Resilient shield-horned guardians of the grassland. Renowned for their formidable collective strength and defensive intelligence against predators.",
+                stat1: "Weight: 500 - 900 kg",
+                stat2: "Status: Abundant",
+                soundPitch: 150,
+                type: "buffalo"
+            }
+        ];
+
+        // -------------------------------------------------------------
+        // PART 1: PHYSICAL BOUNCING LETTERS ("EXPLORE KENYA")
+        // -------------------------------------------------------------
+        const phrase = "EXPLORE KENYA";
+
+        function renderBouncingLetters() {
+            textTarget.innerHTML = '';
+            subtitle.style.opacity = '0';
+            state.lettersFinished = false;
+
+            const words = phrase.split(' ');
+            let globalIdx = 0;
+
+            words.forEach(word => {
+                const wordContainer = document.createElement('div');
+                wordContainer.className = 'letter-container whitespace-nowrap my-1';
+
+                for (let char of word) {
+                    const letterSpan = document.createElement('span');
+                    letterSpan.className = 'letter';
+                    letterSpan.textContent = char;
+                    letterSpan.dataset.index = globalIdx;
+
+                    // Interactive click to re-bounce individual letter
+                    letterSpan.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        letterSpan.classList.remove('pop');
+                        void letterSpan.offsetWidth; // Force Reflow
+                        letterSpan.classList.add('pop');
+                        playBounceSound(250 + parseInt(letterSpan.dataset.index) * 35);
+                    });
+
+                    wordContainer.appendChild(letterSpan);
+                    globalIdx++;
+                }
+                textTarget.appendChild(wordContainer);
+            });
+
+            startBounceSequence();
+        }
+
+   
+
+        function startBounceSequence() {
+            const letters = document.querySelectorAll('.letter');
+            const dropDelay = 140; // Ms between each letter bounce
+
+            letters.forEach((letter, idx) => {
+                setTimeout(() => {
+                    if (!state.isPlaying) return;
+
+                    letter.classList.add('bounced');
+                    playBounceSound(200 + idx * 30);
+
+                    // Start floating idle movement once dropped
+                    setTimeout(() => {
+                        letter.classList.add('floating');
+                        letter.style.animationDelay = `${(idx * 0.2).toFixed(1)}s`;
+                    }, 800);
+
+                    // When last letter bounces
+                    if (idx === letters.length - 1) {
+                        setTimeout(() => {
+                            subtitle.style.opacity = '1';
+                            state.lettersFinished = true;
+                        }, 500);
+                    }
+                }, idx * dropDelay);
+            });
+        }
+
+        // -------------------------------------------------------------
+        // PART 2: SYNTHESIZED LION KING STYLE AFRICAN AUDIO ENGINE
+        // -------------------------------------------------------------
+        let audioCtx = null;
+        let isAudioPlaying = false;
+        let rhythmInterval = null;
+
+        function initAudioEngine() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        // Play synthetic elastic bounce pop sound
+        function playBounceSound(freq) {
+            if (!state.audioEnabled || !audioCtx) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(freq * 2.2, audioCtx.currentTime + 0.1);
+                osc.frequency.exponentialRampToValueAtTime(90, audioCtx.currentTime + 0.25);
+
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.26);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.27);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        // African Djembe & Kalimba Sequencer (Inspired by Lion King Savanna Rhythms)
+        function triggerDjembeBeat(noteType) {
+            if (!state.audioEnabled || !audioCtx) return;
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            if (noteType === 'bass') {
+                // Low Djembe Bass drum
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(110, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(45, audioCtx.currentTime + 0.25);
+                gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+            } else if (noteType === 'slap') {
+                // High Wood Slap
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(380, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.12);
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+            } else if (noteType === 'kalimba') {
+                // Kalimba melodic pluck
+                const pitches = [523.25, 659.25, 783.99, 1046.50]; // C Major pentatonic
+                const pitch = pitches[Math.floor(Math.random() * pitches.length)];
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(pitch, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
+            }
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.4);
+        }
+
+        // Animal Call Synthesizer
+        function playAnimalSound(type) {
+            initAudioEngine();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            if (type === 'lion') {
+                // Low roaring rumble
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(70, audioCtx.currentTime);
+                osc.frequency.linearRampToValueAtTime(120, audioCtx.currentTime + 0.4);
+                osc.frequency.linearRampToValueAtTime(50, audioCtx.currentTime + 1.2);
+                gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.35, audioCtx.currentTime + 0.3);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.3);
+            } else if (type === 'elephant') {
+                // High trumpeting sweep
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(320, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(680, audioCtx.currentTime + 0.3);
+                osc.frequency.linearRampToValueAtTime(400, audioCtx.currentTime + 0.8);
+                gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.9);
+            } else {
+                // Generic Savanna Call
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.4);
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+            }
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 1.4);
+        }
+
+        function startAfricanRhythm() {
+            initAudioEngine();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            let step = 0;
+            if (rhythmInterval) clearInterval(rhythmInterval);
+
+            rhythmInterval = setInterval(() => {
+                if (!state.audioEnabled || !state.isPlaying) return;
+
+                // 8-beat African polyrhythmic pattern
+                if (step % 2 === 0) triggerDjembeBeat('bass');
+                if (step % 4 === 1 || step === 7) triggerDjembeBeat('slap');
+                if (step % 3 === 0) triggerDjembeBeat('kalimba');
+
+                step = (step + 1) % 8;
+            }, 250);
+        }
+
+        function toggleAudio() {
+            state.audioEnabled = !state.audioEnabled;
+            if (state.audioEnabled) {
+                soundIcon.className = 'fas fa-volume-up text-amber-400';
+                soundText.textContent = 'Audio: Active';
+                eqContainer.classList.remove('hidden');
+                startAfricanRhythm();
+            } else {
+                soundIcon.className = 'fas fa-music text-amber-400';
+                soundText.textContent = 'Play African Rhythm';
+                eqContainer.classList.add('hidden');
+                if (rhythmInterval) clearInterval(rhythmInterval);
+            }
+        }
+
+        // -------------------------------------------------------------
+        // PART 3: REALISTIC LUSH GREEN SAVANNA CANVAS (KILIMANJARO + ANIMALS)
+        // -------------------------------------------------------------
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        // Birds Flying in V-Formation
+        const birds = Array.from({ length: 7 }, (_, i) => ({
+            x: -100 - (i * 25),
+            y: 80 + Math.sin(i) * 20,
+            speed: 1.2 + Math.random() * 0.3,
+            wingCycle: Math.random() * Math.PI * 2
+        }));
+
+        function drawBirds() {
+            ctx.save();
+            ctx.strokeStyle = 'rgba(20, 50, 30, 0.7)';
+            ctx.lineWidth = 2;
+
+            birds.forEach(bird => {
+                if (state.isPlaying) {
+                    bird.x += bird.speed;
+                    bird.wingCycle += 0.15;
+                    if (bird.x > canvas.width + 100) bird.x = -100;
+                }
+
+                const wingY = Math.sin(bird.wingCycle) * 8;
+                ctx.beginPath();
+                ctx.moveTo(bird.x - 10, bird.y + wingY);
+                ctx.quadraticCurveTo(bird.x, bird.y - 6, bird.x + 10, bird.y + wingY);
+                ctx.stroke();
+            });
+
+            ctx.restore();
+        }
+
+        // Wind-Swaying Grass Blade System
+        let grassOffset = 0;
+        function drawWindGrass(groundY) {
+            ctx.save();
+            grassOffset += 0.03;
+            const wind = Math.sin(grassOffset) * 12;
+
+            ctx.strokeStyle = '#2d6a4f';
+            ctx.lineWidth = 2.5;
+
+            for (let x = 0; x < canvas.width; x += 12) {
+                const height = 18 + Math.sin(x * 0.05) * 10;
+                ctx.beginPath();
+                ctx.moveTo(x, groundY + 4);
+                ctx.quadraticCurveTo(x + wind * 0.5, groundY - height * 0.5, x + wind, groundY - height);
+                ctx.stroke();
+            }
+            ctx.restore();
+        }
+
+        // Mount Kilimanjaro Background Silhouette
+        function drawKilimanjaro() {
+            const groundY = canvas.height * 0.82;
+            const kiliX = canvas.width * 0.5;
+            const kiliWidth = Math.min(canvas.width * 0.7, 900);
+
+            ctx.save();
+            // Mountain Base
+            ctx.fillStyle = state.skyMode === 'dusk' ? '#1b3a2b' : '#2d5a3f';
+            ctx.beginPath();
+            ctx.moveTo(kiliX - kiliWidth / 2, groundY);
+            ctx.quadraticCurveTo(kiliX - kiliWidth * 0.25, groundY - 180, kiliX - 120, groundY - 210);
+            ctx.lineTo(kiliX + 120, groundY - 210);
+            ctx.quadraticCurveTo(kiliX + kiliWidth * 0.25, groundY - 180, kiliX + kiliWidth / 2, groundY);
+            ctx.closePath();
+            ctx.fill();
+
+            // Snow-Capped Peak
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+            ctx.beginPath();
+            ctx.moveTo(kiliX - 110, groundY - 200);
+            ctx.lineTo(kiliX - 80, groundY - 175);
+            ctx.lineTo(kiliX - 30, groundY - 190);
+            ctx.lineTo(kiliX + 20, groundY - 170);
+            ctx.lineTo(kiliX + 90, groundY - 195);
+            ctx.lineTo(kiliX + 110, groundY - 200);
+            ctx.lineTo(kiliX + 120, groundY - 210);
+            ctx.lineTo(kiliX - 120, groundY - 210);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        // Lush Emerald Acacia Trees
+        function drawAcaciaTree(x, groundY, scale) {
+            ctx.save();
+            ctx.translate(x, groundY);
+            ctx.scale(scale, scale);
+
+            // Trunk
+            ctx.fillStyle = '#143622';
+            ctx.beginPath();
+            ctx.moveTo(-10, 0);
+            ctx.quadraticCurveTo(-5, -60, -28, -110);
+            ctx.quadraticCurveTo(-2, -75, 12, 0);
+            ctx.fill();
+
+            // Branches
+            ctx.beginPath();
+            ctx.moveTo(-20, -90);
+            ctx.quadraticCurveTo(-50, -130, -100, -145);
+            ctx.lineTo(-95, -150);
+            ctx.quadraticCurveTo(-42, -135, -10, -100);
+
+            ctx.moveTo(0, -95);
+            ctx.quadraticCurveTo(40, -130, 90, -145);
+            ctx.lineTo(85, -150);
+            ctx.quadraticCurveTo(32, -135, 5, -100);
+            ctx.fill();
+
+            // Lush Green Flat Canopy
+            ctx.fillStyle = '#1e5338';
+            const drawCloud = (cx, cy, rx, ry) => {
+                ctx.beginPath();
+                ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+                ctx.fill();
+            };
+
+            drawCloud(-100, -152, 55, 16);
+            drawCloud(0, -158, 80, 20);
+            drawCloud(90, -150, 50, 15);
+
+            // Highlight Layer
+            ctx.fillStyle = '#40916c';
+            drawCloud(-100, -155, 45, 10);
+            drawCloud(0, -162, 65, 12);
+            drawCloud(90, -153, 40, 9);
+
+            ctx.restore();
+        }
+
+        // -------------------------------------------------------------
+        // PART 4: REALISTIC MULTI-JOINT BIG FIVE ANIMAL WALK ENGINE
+        // -------------------------------------------------------------
+
+        class RealisticAnimal {
+            constructor(specIndex) {
+                this.spec = bigFiveSpecs[specIndex];
+                this.specIndex = specIndex;
+                this.reset();
+            }
+
+            reset() {
+                this.x = -280;
+                this.y = canvas.height * 0.82;
+                this.walkCycle = Math.random() * Math.PI * 2;
+                this.speed = (1.1 + Math.random() * 0.25);
+                this.scale = (canvas.width < 640 ? 0.65 : 1.0) * (0.8 + this.specIndex * 0.05);
+                this.isHovered = false;
+                this.actionFrame = 0;
+            }
+
+            update() {
+                if (!state.isPlaying) return;
+                this.x += this.speed;
+                this.walkCycle += 0.07;
+
+                if (this.actionFrame > 0) this.actionFrame--;
+
+                if (this.x > canvas.width + 300) {
+                    this.x = -300;
+                }
+            }
+
+            draw(ctx) {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.scale(this.scale, this.scale);
+
+                // Multi-joint leg angles calculated using natural quadraped gait sinusoidal offsets
+                const legFrontA = Math.sin(this.walkCycle) * 22;
+                const legFrontB = Math.cos(this.walkCycle) * 22;
+                const legBackA = Math.sin(this.walkCycle + Math.PI) * 22;
+                const legBackB = Math.cos(this.walkCycle + Math.PI) * 22;
+                const bodyBob = Math.abs(Math.sin(this.walkCycle * 2)) * 4;
+
+                ctx.fillStyle = this.isHovered ? '#facc15' : '#0a2315';
+                ctx.strokeStyle = this.isHovered ? '#facc15' : '#0a2315';
+
+                switch(this.spec.type) {
+                    case 'lion':
+                        this.drawLion(ctx, legFrontA, legFrontB, legBackA, legBackB, bodyBob);
+                        break;
+                    case 'elephant':
+                        this.drawElephant(ctx, legFrontA, legFrontB, legBackA, legBackB, bodyBob);
+                        break;
+                    case 'rhino':
+                        this.drawRhino(ctx, legFrontA, legFrontB, legBackA, legBackB, bodyBob);
+                        break;
+                    case 'leopard':
+                        this.drawLeopard(ctx, legFrontA, legFrontB, legBackA, legBackB, bodyBob);
+                        break;
+                    case 'buffalo':
+                        this.drawBuffalo(ctx, legFrontA, legFrontB, legBackA, legBackB, bodyBob);
+                        break;
+                }
+
+                ctx.restore();
+            }
+
+            // High Quality Realistic Silhouette Rendering Algorithms
+            drawLion(ctx, fA, fB, bA, bB, bob) {
+                // Realistic Back Legs
+                ctx.lineWidth = 14;
+                ctx.beginPath();
+                ctx.moveTo(-40, -40 - bob);
+                ctx.lineTo(-50 + bA, -15);
+                ctx.lineTo(-45 + bA, 5);
+                ctx.stroke();
+
+                // Realistic Front Legs
+                ctx.beginPath();
+                ctx.moveTo(35, -40 - bob);
+                ctx.lineTo(40 + fA, -15);
+                ctx.lineTo(42 + fA, 5);
+                ctx.stroke();
+
+                // Muscular Body Contour
+                ctx.beginPath();
+                ctx.ellipse(0, -48 - bob, 58, 26, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Majestic Mane & Head
+                ctx.beginPath();
+                ctx.arc(48, -62 - bob, 32, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Snout
+                ctx.beginPath();
+                ctx.ellipse(70, -58 - bob, 14, 10, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Tail with animated tip
+                ctx.lineWidth = 4;
+                ctx.beginPath();
+                ctx.moveTo(-55, -55 - bob);
+                ctx.quadraticCurveTo(-80, -40, -75 + fB * 0.5, -20);
+                ctx.stroke();
+            }
+
+            drawElephant(ctx, fA, fB, bA, bB, bob) {
+                // Columnar Legs
+                ctx.lineWidth = 22;
+                ctx.beginPath();
+                ctx.moveTo(-60, -50 - bob);
+                ctx.lineTo(-65 + bA, 5);
+                ctx.moveTo(-20, -50 - bob);
+                ctx.lineTo(-18 + bB, 5);
+                ctx.moveTo(35, -50 - bob);
+                ctx.lineTo(38 + fA, 5);
+                ctx.moveTo(75, -50 - bob);
+                ctx.lineTo(72 + fB, 5);
+                ctx.stroke();
+
+                // Massive Curved Body Dome
+                ctx.beginPath();
+                ctx.ellipse(10, -95 - bob, 95, 65, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Head
+                ctx.beginPath();
+                ctx.arc(95, -115 - bob, 42, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Large Flapping Ear
+                ctx.beginPath();
+                ctx.ellipse(70, -110 - bob, 30, 48, Math.PI / 8, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Trunk with lifelike wave curve
+                const trunkWave = Math.sin(this.walkCycle) * 15;
+                ctx.lineWidth = 16;
+                ctx.beginPath();
+                ctx.moveTo(125, -110 - bob);
+                ctx.quadraticCurveTo(155 + trunkWave, -80, 145 + trunkWave, -20);
+                ctx.quadraticCurveTo(140 + trunkWave, 0, 155 + trunkWave, -10);
+                ctx.stroke();
+
+                // White Tusk
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = 6;
+                ctx.beginPath();
+                ctx.moveTo(115, -95 - bob);
+                ctx.quadraticCurveTo(150, -85, 160, -100);
+                ctx.stroke();
+            }
+
+            drawRhino(ctx, fA, fB, bA, bB, bob) {
+                // Thick Sturdy Legs
+                ctx.lineWidth = 18;
+                ctx.beginPath();
+                ctx.moveTo(-45, -35 - bob);
+                ctx.lineTo(-50 + bA, 5);
+                ctx.moveTo(40, -35 - bob);
+                ctx.lineTo(42 + fA, 5);
+                ctx.stroke();
+
+                // Heavy Armored Body
+                ctx.beginPath();
+                ctx.ellipse(0, -55 - bob, 70, 40, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Head & Snout
+                ctx.beginPath();
+                ctx.moveTo(45, -70 - bob);
+                ctx.lineTo(95, -45 - bob);
+                ctx.lineTo(90, -25 - bob);
+                ctx.lineTo(40, -38 - bob);
+                ctx.closePath();
+                ctx.fill();
+
+                // Horns
+                ctx.beginPath();
+                ctx.moveTo(80, -42 - bob);
+                ctx.quadraticCurveTo(95, -80, 105, -85);
+                ctx.quadraticCurveTo(85, -55, 85, -40 - bob);
+                ctx.fill();
+            }
+
+            drawLeopard(ctx, fA, fB, bA, bB, bob) {
+                // Sleek Agile Legs
+                ctx.lineWidth = 10;
+                ctx.beginPath();
+                ctx.moveTo(-35, -30 - bob);
+                ctx.lineTo(-42 + bA, 5);
+                ctx.moveTo(30, -30 - bob);
+                ctx.lineTo(35 + fA, 5);
+                ctx.stroke();
+
+                // Low Streamlined Body
+                ctx.beginPath();
+                ctx.ellipse(0, -38 - bob, 50, 18, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Head
+                ctx.beginPath();
+                ctx.arc(48, -45 - bob, 15, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Long Curved Tail
+                ctx.lineWidth = 4;
+                ctx.beginPath();
+                ctx.moveTo(-48, -40 - bob);
+                ctx.quadraticCurveTo(-75, -55, -65 + fB, -65);
+                ctx.stroke();
+            }
+
+            drawBuffalo(ctx, fA, fB, bA, bB, bob) {
+                // Heavy Hoofed Legs
+                ctx.lineWidth = 16;
+                ctx.beginPath();
+                ctx.moveTo(-40, -35 - bob);
+                ctx.lineTo(-45 + bA, 5);
+                ctx.moveTo(35, -35 - bob);
+                ctx.lineTo(38 + fA, 5);
+                ctx.stroke();
+
+                // Robust Muscular Barrel Body
+                ctx.beginPath();
+                ctx.ellipse(0, -52 - bob, 65, 36, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Head
+                ctx.beginPath();
+                ctx.arc(58, -60 - bob, 24, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Characteristic Curved Horn Shield (Boss)
+                ctx.beginPath();
+                ctx.moveTo(42, -75 - bob);
+                ctx.quadraticCurveTo(60, -92, 82, -72 - bob);
+                ctx.quadraticCurveTo(90, -58, 75, -52 - bob);
+                ctx.lineWidth = 9;
+                ctx.stroke();
+            }
+
+            isPointInside(px, py) {
+                const dx = px - this.x;
+                const dy = py - this.y;
+                return Math.abs(dx) < 70 * this.scale && dy < 10 && dy > -120 * this.scale;
+            }
+        }
+
+        // Initialize Animals Array
+        let animals = [];
+        function initAnimals() {
+            animals = [];
+            for (let i = 0; i < 5; i++) {
+                const animal = new RealisticAnimal(i);
+                animal.x = -180 - (i * 260);
+                animals.push(animal);
+            }
+        }
+
+        // -------------------------------------------------------------
+        // MAIN 60 FPS RENDER LOOP
+        // -------------------------------------------------------------
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const groundY = canvas.height * 0.82;
+
+            // 1. Mount Kilimanjaro Backdrop
+            drawKilimanjaro();
+
+            // 2. Birds Flying in Sky
+            drawBirds();
+
+            // 3. Acacia Trees
+            drawAcaciaTree(canvas.width * 0.12, groundY, 0.85);
+            drawAcaciaTree(canvas.width * 0.85, groundY, 1.1);
+
+            // 4. Ground & Wind Grass
+            ctx.fillStyle = state.skyMode === 'dusk' ? '#0f291e' : '#1b4332';
+            ctx.fillRect(0, groundY, canvas.width, canvas.height - groundY);
+            drawWindGrass(groundY);
+
+            // 5. Big Five Realistic Walking Animals
+            animals.forEach(animal => {
+                animal.update();
+                animal.draw(ctx);
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // -------------------------------------------------------------
+        // INTERACTIVE MODAL & CLICK HANDLERS
+        // -------------------------------------------------------------
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            let hovering = false;
+            animals.forEach(a => {
+                if (a.isPointInside(mouseX, mouseY)) {
+                    a.isHovered = true;
+                    hovering = true;
+                } else {
+                    a.isHovered = false;
+                }
+            });
+            canvas.style.cursor = hovering ? 'pointer' : 'default';
+        });
+
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            animals.forEach(a => {
+                if (a.isPointInside(mouseX, mouseY)) {
+                    openAnimalModal(a.spec);
+                    playAnimalSound(a.spec.type);
+                }
+            });
+        });
+
+        function openAnimalModal(spec) {
+            state.activeAnimalModal = spec;
+            document.getElementById('modal-title').textContent = spec.name;
+            document.getElementById('modal-swahili').textContent = `Swahili: ${spec.swahili}`;
+            document.getElementById('modal-desc').textContent = spec.desc;
+            document.getElementById('modal-stat-1').innerHTML = `<i class="fas fa-weight-hanging mr-1"></i> ${spec.stat1}`;
+            document.getElementById('modal-stat-2').innerHTML = `<i class="fas fa-shield-alt mr-1"></i> ${spec.stat2}`;
+
+            animalModal.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+            animalModal.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
+        }
+
+        closeModal.addEventListener('click', () => {
+            animalModal.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+            animalModal.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
+        });
+
+        modalActionBtn.addEventListener('click', () => {
+            if (state.activeAnimalModal) {
+                playAnimalSound(state.activeAnimalModal.type);
+            }
+        });
+
+        // Quick Tag Click Handler
+        document.querySelectorAll('.animal-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                const idx = parseInt(tag.dataset.index);
+                if (animals[idx]) {
+                    openAnimalModal(animals[idx].spec);
+                    playAnimalSound(animals[idx].spec.type);
+                }
+            });
+        });
+
+        // Replay Button
+        replayBtn.addEventListener('click', () => {
+            renderBouncingLetters();
+            initAnimals();
+        });
+
+        // Pause/Play Toggle
+        pauseBtn.addEventListener('click', () => {
+            state.isPlaying = !state.isPlaying;
+            if (state.isPlaying) {
+                pauseIcon.className = 'fas fa-pause';
+                pauseText.textContent = 'Pause';
+            } else {
+                pauseIcon.className = 'fas fa-play';
+                pauseText.textContent = 'Play';
+            }
+        });
+
+        // Audio Button
+        soundBtn.addEventListener('click', toggleAudio);
+
+        // Day/Golden/Dusk Theme Selector
+        themeBtn.addEventListener('click', () => {
+            if (state.skyMode === 'day') {
+                state.skyMode = 'golden';
+                sceneContainer.className = 'savanna-bg golden-mode absolute inset-0 w-full h-full overflow-hidden';
+                themeIcon.className = 'fas fa-sun-cloud text-amber-300';
+                themeText.textContent = 'Golden Hour';
+            } else if (state.skyMode === 'golden') {
+                state.skyMode = 'dusk';
+                sceneContainer.className = 'savanna-bg dusk-mode absolute inset-0 w-full h-full overflow-hidden';
+                themeIcon.className = 'fas fa-moon text-amber-200';
+                themeText.textContent = 'Dusk Savanna';
+            } else {
+                state.skyMode = 'day';
+                sceneContainer.className = 'savanna-bg absolute inset-0 w-full h-full overflow-hidden';
+                themeIcon.className = 'fas fa-sun text-amber-400';
+                themeText.textContent = 'Day Savanna';
+            }
+        });
+
+        // Window Load Initialization
+        window.onload = function() {
+            resizeCanvas();
+            renderBouncingLetters();
+            initAnimals();
+            animate();
+        };
+    </script>
 </body>
 </html>
