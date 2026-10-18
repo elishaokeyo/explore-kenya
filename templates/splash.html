@@ -11,74 +11,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* Navigation Container */
-.main-nav {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-family: 'Montserrat', sans-serif;
-}
 
-/* Nav Items Base Styling */
-.nav-item {
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #ffffff;
-  padding: 10px 22px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  display: inline-block;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Hover Effect for standard nav items */
-.nav-item:hover {
-  background: #2e7d32; /* Savanna Green */
-  color: #ffffff;
-  border-color: #4caf50;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
-}
-
-/* Spin Hover Animation Class */
-.nav-item.spin {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #1b5e20, #388e3c);
-  border: 1px solid #81c784;
-}
-
-.nav-item.spin:hover {
-  animation: navSpin 0.6s ease-in-out forwards;
-  background: linear-gradient(135deg, #f57c00, #ffb300); /* Vibrant Gold on Hover */
-  color: #111;
-  border-color: #ffe082;
-  box-shadow: 0 0 25px rgba(255, 179, 0, 0.6);
-}
-
-/* Keyframe for 360 Spin Effect */
-@keyframes navSpin {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.15);
-  }
-  100% {
-    transform: rotate(360deg) scale(1.05);
-  }
-}
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #06140b;
@@ -251,12 +184,13 @@
                 <p class="text-xs text-emerald-200/80 font-medium">Lush Green Savanna Experience</p>
             </div>
         </div>
+        <!-- link -->
+        <div class="flex items-center space-x-3">
+            <a href='/register' class="nav-item nav-link spin">SIGHN IN</a>
+        </div>
 
         <!-- Audio & Equalizer Control -->
         <div class="flex items-center space-x-3">
-            <nav class="main-nav">
-  <a href="/register" class="nav-item nav-link spin">SIGN IN</a>
-</nav>
             <button id="sound-btn" class="flex items-center space-x-3 bg-emerald-950/70 hover:bg-emerald-900/80 border border-emerald-400/40 px-4 py-2 rounded-full text-xs font-bold text-amber-300 backdrop-blur-md transition shadow-lg">
                 <i id="sound-icon" class="fas fa-music text-amber-400 text-sm"></i>
                 <span id="sound-text" class="hidden sm:inline">Play African Rhythm</span>
