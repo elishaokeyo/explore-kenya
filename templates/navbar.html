@@ -22,9 +22,9 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      /* background: #0f1410; */
       color: #ffffff;
       min-height: 100vh;
+      background: #0f1410;
     }
 
     /* --- Glassmorphic Animated Navbar Header --- */
@@ -99,6 +99,22 @@
     .navbar-nav .nav-link:hover::after {
       width: 60%;
     }
+
+    /* --- ACTIVE ROUTE INDICATOR STYLES --- */
+    .navbar-nav .nav-link.active {
+      color: #ffffff !important;
+      background: linear-gradient(135deg, rgba(46, 125, 50, 0.6), rgba(76, 175, 80, 0.3)) !important;
+      border: 1px solid rgba(129, 199, 132, 0.5);
+      box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+      font-weight: 700;
+    }
+
+    .navbar-nav .nav-link.active::after {
+      width: 70% !important;
+      background: var(--accent-gold) !important;
+      box-shadow: 0 0 8px var(--accent-gold);
+    }
+
     /* User Profile & Auth Badges */
     .user-badge {
       background: rgba(211, 47, 47, 0.2);
@@ -164,19 +180,19 @@
       <!-- Collapsible Container -->
       <div class="collapse navbar-collapse" id="navbarCollapse">
         
-        <!-- Center Nav Links -->
+        <!-- Center Nav Links with Dynamic Flask Request Path Matching -->
         <div class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center">
-          <a href="/culture" class="nav-item nav-link">Culture</a>
-          <a href="/education" class="nav-item nav-link">Education</a>
-          <a href="/entertainment" class="nav-item nav-link">Entertainment</a>
-          <a href="/politics" class="nav-item nav-link">Politics</a>
-          <a href="/tourism" class="nav-item nav-link">Tourism</a>
-          <a href="/sports" class="nav-item nav-link">Sports</a>
-          <a href="/religion" class="nav-item nav-link">Religion</a>
-          <a href="/upload" class="nav-item nav-link"><i class="fa-solid fa-cloud-arrow-up me-1"></i> Upload</a>
+          <a href="/culture" class="nav-item nav-link {% if request.path == '/culture' %}active{% endif %}">Culture</a>
+          <a href="/education" class="nav-item nav-link {% if request.path == '/education' %}active{% endif %}">Education</a>
+          <a href="/entertainment" class="nav-item nav-link {% if request.path == '/entertainment' %}active{% endif %}">Entertainment</a>
+          <a href="/politics" class="nav-item nav-link {% if request.path == '/politics' %}active{% endif %}">Politics</a>
+          <a href="/tourism" class="nav-item nav-link {% if request.path == '/tourism' %}active{% endif %}">Tourism</a>
+          <a href="/sports" class="nav-item nav-link {% if request.path == '/sports' %}active{% endif %}">Sports</a>
+          <a href="/religion" class="nav-item nav-link {% if request.path == '/religion' %}active{% endif %}">Religion</a>
+          <a href="/upload" class="nav-item nav-link {% if request.path == '/upload' %}active{% endif %}">
+            <i class="fa-solid fa-cloud-arrow-up me-1"></i> Upload
+          </a>
         </div> 
-
-        
 
         <!-- Right User Auth Actions -->
         <div class="navbar-nav align-items-lg-center gap-2 mt-2 mt-lg-0">
@@ -188,8 +204,8 @@
               <i class="fa-solid fa-right-from-bracket me-1"></i> Logout
             </a>
           {% else %}
-            <a href="/login" class="nav-item nav-link px-3">Login</a>
-            <a href="/register" class="nav-item nav-link btn-spin-auth">
+            <a href="/login" class="nav-item nav-link px-3 {% if request.path == '/login' %}active{% endif %}">Login</a>
+            <a href="/register" class="nav-item nav-link btn-spin-auth {% if request.path == '/register' %}active{% endif %}">
               <i class="fa-solid fa-user-plus me-1"></i> Sign In
             </a>
           {% endif %}
@@ -198,6 +214,20 @@
       </div>
     </div>
   </nav>
+
+  <!-- Optional JavaScript fallback to highlight active link on purely static client side -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+      
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 
   <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
