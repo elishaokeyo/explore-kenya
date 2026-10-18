@@ -200,11 +200,11 @@
             <span class="user-badge">
               <i class="fa-solid fa-user-check me-1"></i> {{ session["key"] }}
             </span>
-            <a href="/logout" class="btn btn-outline-danger btn-sm rounded-pill px-3">
+            <a href="/splash" class="btn btn-outline-danger btn-sm rounded-pill px-3">
               <i class="fa-solid fa-right-from-bracket me-1"></i> Logout
             </a>
           {% else %}
-            <a href="/login" class="nav-item nav-link px-3 {% if request.path == '/splash' %}active{% endif %}">Login</a>
+            <a href="/login" class="nav-item nav-link px-3 {% if request.path == '/login' %}active{% endif %}">Login</a>
             <a href="/register" class="nav-item nav-link btn-spin-auth {% if request.path == '/register' %}active{% endif %}">
               <i class="fa-solid fa-user-plus me-1"></i> Sign In
             </a>
