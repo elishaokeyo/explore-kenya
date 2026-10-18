@@ -22,13 +22,13 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #0f1410;
+      /* background: #0f1410; */
       color: #ffffff;
       min-height: 100vh;
     }
 
     /* --- Glassmorphic Animated Navbar Header --- */
-    /* .custom-navbar {
+    .custom-navbar {
       background: var(--glass-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -36,7 +36,7 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       padding: 12px 24px !important;
       transition: all 0.3s ease;
-    } */
+    } 
 
     /* Brand Logo Animation */
     .navbar-brand {
@@ -99,49 +99,6 @@
     .navbar-nav .nav-link:hover::after {
       width: 60%;
     }
-
-    /* Search Bar Styling */
-    .search-box {
-      position: relative;
-      max-width: 260px;
-    }
-
-    .search-input {
-      background: rgba(255, 255, 255, 0.1) !important;
-      border: 1px solid rgba(255, 255, 255, 0.2) !important;
-      border-radius: 25px !important;
-      color: #ffffff !important;
-      padding-left: 15px !important;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-    }
-
-    .search-input::placeholder {
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .search-input:focus {
-      background: rgba(255, 255, 255, 0.2) !important;
-      border-color: #4caf50 !important;
-      box-shadow: 0 0 12px rgba(76, 175, 80, 0.4) !important;
-    }
-
-    .btn-search {
-      border-radius: 25px !important;
-      padding: 5px 18px !important;
-      font-weight: 600;
-      font-size: 0.85rem;
-      border-color: #4caf50 !important;
-      color: #4caf50 !important;
-      transition: all 0.3s ease !important;
-    }
-
-    .btn-search:hover {
-      background: #4caf50 !important;
-      color: #ffffff !important;
-      box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
-    }
-
     /* User Profile & Auth Badges */
     .user-badge {
       background: rgba(211, 47, 47, 0.2);
@@ -209,7 +166,6 @@
         
         <!-- Center Nav Links -->
         <div class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center">
-          <a href="/index" class="nav-item nav-link"><i class="fa-solid fa-house me-1"></i> Home</a>
           <a href="/culture" class="nav-item nav-link">Culture</a>
           <a href="/education" class="nav-item nav-link">Education</a>
           <a href="/entertainment" class="nav-item nav-link">Entertainment</a>
